@@ -17,8 +17,7 @@ public class WalletService {
     private final CustomerService customerService;
 
     public Wallet addWallet(Long customerId, String currencyCode) {
-        Customer customer = customerService.findById(customerId)
-                .orElseThrow(() -> new IllegalArgumentException("Customer not found"));
+        Customer customer = customerService.findById(customerId);
 
         Wallet wallet = new Wallet();
         wallet.setCustomer(customer);

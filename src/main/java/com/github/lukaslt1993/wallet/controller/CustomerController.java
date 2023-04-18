@@ -15,8 +15,7 @@ public class CustomerController {
 
     @GetMapping
     public ResponseEntity<CustomerDTO> getCustomer(@PathVariable Long customerId) {
-        Customer customer = customerService.findById(customerId)
-                .orElseThrow(() -> new IllegalArgumentException("Customer not found"));
+        Customer customer = customerService.findById(customerId);
         return ResponseEntity.ok(Customer.toCustomerDTO(customer));
     }
 }
